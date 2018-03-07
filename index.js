@@ -29,8 +29,8 @@ module.exports = function(content, map, meta) {
             }
         }
 
-        if (!fs.existsSync(path.join(options.cache))) {
-            fs.mkdirSync(path.join(options.cache));
+        if (!fs.existsSync(options.cache)) {
+            fs.mkdirSync(options.cache);
         }
 
         tinify.key = options.apikey;
