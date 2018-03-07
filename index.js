@@ -11,7 +11,7 @@ module.exports = function(content, map, meta) {
     const done = this.async();
     const options = getOptions(this) || {};
 
-    options.cache = options.cache || path.resolve('.cache/img');
+    options.cache = options.cache || path.resolve('.cache/tinify');
 
     const checksum = crypto.createHash('sha1').update(content.toString('utf8')).digest('hex');
     const checksumfile = path.join(options.cache, checksum);
