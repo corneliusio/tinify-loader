@@ -1,0 +1,21 @@
+{
+  "name": "tinify-loader",
+  "version": "0.1.0",
+  "description": "A Webpack loader to optimize images with TinyPNG/TinyJPG.",
+  "repository": "corneliusio/tinify-loader",
+  "bugs": {
+    "url": "https://github.com/corneliusio/tinify-loader/issues"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "author": {
+    "name": "Cornelius Ukena",
+    "email": "guy@cornelius.io"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tinify": "^1.5.0"
+  }
+}
