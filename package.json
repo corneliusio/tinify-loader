@@ -1,6 +1,6 @@
 {
   "name": "tinify-loader",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "📦 Webpack loader to optimize images with TinyPNG/TinyJPG.",
   "repository": "corneliusio/tinify-loader",
   "bugs": {
