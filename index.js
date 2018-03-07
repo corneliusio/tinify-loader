@@ -8,8 +8,6 @@ const userhome = process.env.HOME || process.env.HOMEPATH || process.env.USERPRO
 const apikeypath = path.join(userhome, '.tinypng');
 
 module.exports = function(content, map, meta) {
-    this.cacheable();
-
     const done = this.async();
     const options = getOptions(this) || {};
 
