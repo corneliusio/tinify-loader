@@ -1,5 +1,7 @@
 # Tinify Loader
 
+[![NPM Version](https://img.shields.io/npm/v/tinify-loader.svg?style=flat-square)](http://npmjs.com/package/tinify-loader) [![Build Status](https://img.shields.io/travis/corneliusio/tinify-loader/master.svg?style=flat-square)](https://travis-ci.org/corneliusio/tinify-loader)
+
 > Optimizes your images with [TinyPNG](https://tinypng.com)/[TinyJPG](https://tinyjpg.com) and persistently caches the results to avoid eating up your API rate limit.
 
 TinyPNG uses smart lossy compression techniques to **reduce the file size** of your PNG files. By selectively decreasing the number of colors in the image, fewer bytes are required to store the data. The effect is nearly invisible but it makes a very large difference in file size! Similarly, TinyJPG reduces the file size of your JPEG images. Every uploaded image is **analyzed** to apply the best possible JPEG encoding. Based on the **content of your image** an optimal strategy is chosen. The result is a quality image without wasting storage or bandwidth!
