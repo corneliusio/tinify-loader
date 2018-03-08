@@ -10,6 +10,9 @@
   "engines": {
     "node": ">=6.0.0"
   },
+  "scripts": {
+    "test": "ava --verbose"
+  },
   "author": {
     "name": "Cornelius Ukena",
     "email": "guy@cornelius.io"
@@ -28,5 +31,8 @@
   "license": "MIT",
   "dependencies": {
     "tinify": "^1.5.0"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0"
   }
 }
