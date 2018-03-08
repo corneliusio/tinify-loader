@@ -14,6 +14,17 @@
     "name": "Cornelius Ukena",
     "email": "guy@cornelius.io"
   },
+  "keywords": [
+    "webpack",
+    "loader",
+    "optimize",
+    "compress",
+    "image",
+    "tinypng",
+    "tinyjpg",
+    "tinify",
+    "cache"
+  ],
   "license": "MIT",
   "dependencies": {
     "tinify": "^1.5.0"
