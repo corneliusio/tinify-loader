@@ -27,6 +27,12 @@ module.exports = function(content, map, meta) {
             } else if (fs.existsSync(apikeypath)) {
                 options.apikey = fs.readFileSync(apikeypath, 'utf8').trim();
             }
+
+            if (!options.apikey) {
+                this.emitWarning(new Error('Tinify Loader: No API key provided for TinyPNG/TinyJPG. **Images not optimized**\nYou can find instructions on getting your API key at https://www.npmjs.com/package/tinify-loader'));
+
+                return done(null, content);
+            }
         }
 
         if (!fs.existsSync(options.cache)) {
@@ -36,7 +42,7 @@ module.exports = function(content, map, meta) {
         tinify.key = options.apikey;
         tinify.fromBuffer(content).toBuffer((error, body) => {
             if (error) {
-                return done(error);
+                return done(new Error(`Tinify Loader: ${error.message}`));
             }
 
             fs.writeFile(checksumfile, body, err => console.log(err));
