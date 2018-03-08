@@ -45,7 +45,7 @@ module.exports = function(content, map, meta) {
                 return done(new Error(`Tinify Loader: ${error.message}`));
             }
 
-            fs.writeFile(checksumfile, body, err => console.log(err));
+            fs.writeFile(checksumfile, body, err => err && console.log(err));
 
             return done(null, body);
         });
