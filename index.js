@@ -11,7 +11,7 @@ module.exports = function(content, map, meta) {
     const done = this.async();
     const options = getOptions(this) || {};
 
-    options.cache = options.cache || path.resolve('.cache/tinify');
+    options.cache = path.resolve(options.cache || '.cache/tinify');
 
     const checksum = crypto.createHash('sha1').update(content.toString('utf8')).digest('hex');
     const checksumfile = path.join(options.cache, checksum);
@@ -36,7 +36,21 @@ module.exports = function(content, map, meta) {
         }
 
         if (!fs.existsSync(options.cache)) {
-            fs.mkdirSync(options.cache);
+            options.cache.split(path.sep).reduce((current, next) => {
+                const full = path.resolve(current, next);
+
+                try {
+                    if (full !== '/') {
+                        fs.mkdirSync(full);
+                    }
+                } catch (error) {
+                    if (error.code !== 'EEXIST') {
+                        return done(new Error(`Tinify Loader: ${error.message}`));
+                    }
+                }
+
+                return full;
+            }, '/');
         }
 
         tinify.key = options.apikey;
