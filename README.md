@@ -1,6 +1,6 @@
 # Tinify Loader
 
-[![NPM Version](https://img.shields.io/npm/v/tinify-loader.svg?style=flat-square)](http://npmjs.com/package/tinify-loader) [![Build Status](https://img.shields.io/travis/corneliusio/tinify-loader/master.svg?style=flat-square)](https://travis-ci.org/corneliusio/tinify-loader)
+[![NPM Version](https://img.shields.io/npm/v/tinify-loader.svg?style=flat-square)](http://npmjs.com/package/tinify-loader)
 
 > Optimizes your images with [TinyPNG](https://tinypng.com)/[TinyJPG](https://tinyjpg.com) and persistently caches the results to avoid eating up your API rate limit.
 

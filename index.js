@@ -1,11 +1,12 @@
-let fs = require('fs'),
-    path = require('path'),
-    crypto = require('crypto'),
-    tinify = require('tinify'),
-    {getOptions} = require('loader-utils');
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const tinify = require('tinify');
+const { getOptions } = require('loader-utils');
 
 const userhome = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 const apikeypath = path.join(userhome, '.tinypng');
+const NAME = 'Tinify Loader';
 
 module.exports = function(content, map, meta) {
     const done = this.async();
@@ -29,7 +30,7 @@ module.exports = function(content, map, meta) {
             }
 
             if (!options.apikey) {
-                this.emitWarning(new Error('Tinify Loader: No API key provided for TinyPNG/TinyJPG. **Images not optimized**\nYou can find instructions on getting your API key at https://www.npmjs.com/package/tinify-loader'));
+                this.emitWarning(new Error(`${NAME}: No API key provided for TinyPNG/TinyJPG. **Images not optimized**\nYou can find instructions on getting your API key at https://www.npmjs.com/package/tinify-loader`));
 
                 return done(null, content);
             }
@@ -45,7 +46,7 @@ module.exports = function(content, map, meta) {
                     }
                 } catch (error) {
                     if (error.code !== 'EEXIST') {
-                        return done(new Error(`Tinify Loader: ${error.message}`));
+                        return done(new Error(`${NAME}: ${error.message}`));
                     }
                 }
 
@@ -56,7 +57,7 @@ module.exports = function(content, map, meta) {
         tinify.key = options.apikey;
         tinify.fromBuffer(content).toBuffer((error, body) => {
             if (error) {
-                return done(new Error(`Tinify Loader: ${error.message}`));
+                return done(new Error(`${NAME}: ${error.message}`));
             }
 
             fs.writeFile(checksumfile, body, err => err && console.log(err));
