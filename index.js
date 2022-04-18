@@ -2,15 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const tinify = require('tinify');
-const { getOptions } = require('loader-utils');
 
-const userhome = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
-const apikeypath = path.join(userhome, '.tinypng');
+const __home = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+const apikeypath = path.join(__home, '.tinypng');
 const NAME = 'Tinify Loader';
 
 module.exports = function(content, map, meta) {
     const done = this.async();
-    const options = getOptions(this) || {};
+    const options = this.getOptions() || {};
 
     options.cache = path.resolve(options.cache || '.cache/tinify');
 
